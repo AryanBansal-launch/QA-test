@@ -1,6 +1,6 @@
 export async function GET(req:Request) {
   try {
-    console.log("in api route");
+    console.log("in api route hello");
     console.log("before reqheaders");
     const requestHeaders = Object.fromEntries(req.headers.entries());
     console.log("second log");
