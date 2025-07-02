@@ -1,4 +1,4 @@
-export async function GET(req) {
+export async function GET(req:Request) {
   try {
     console.log("in api route");
     console.log("before reqheaders");
