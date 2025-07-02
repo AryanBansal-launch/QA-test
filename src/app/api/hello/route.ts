@@ -3,7 +3,7 @@ export async function GET(req:Request) {
     console.log("in api route hello");
     console.log("before reqheaders");
     const requestHeaders = Object.fromEntries(req.headers.entries());
-    console.log("second log");
+    console.log("second between log");
     console.log(`req headers from Next.js API route --> ${JSON.stringify(requestHeaders)}`);
     console.log("log after long header log");
 
