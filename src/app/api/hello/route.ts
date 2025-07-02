@@ -5,7 +5,7 @@ export async function GET(req:Request) {
     const requestHeaders = Object.fromEntries(req.headers.entries());
     console.log("second log");
     console.log(`req headers from Next.js API route --> ${JSON.stringify(requestHeaders)}`);
-    console.log("log after");
+    console.log("log after long header log");
 
     return new Response(
       JSON.stringify({
