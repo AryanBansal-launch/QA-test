@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@contentstack/app-sdk": "github:contentstack/app-sdk#main",
+    "electron": "^40.6.1",
     "next": "15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
