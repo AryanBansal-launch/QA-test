@@ -1,11 +1,9 @@
-export async function GET(req:Request) {
+export async function GET(req: Request) {
   try {
-    console.log("in api route hello");
-    console.log("before reqheaders");
     const requestHeaders = Object.fromEntries(req.headers.entries());
-    console.log("second between log");
-    console.log(`req headers from Next.js API route --> ${JSON.stringify(requestHeaders)}`);
-    console.log("log after long header log");
+    console.log(
+      `[API] ${JSON.stringify({ ts: new Date().toISOString(), route: "hello", message: "GET", headerKeys: Object.keys(requestHeaders) })}`
+    );
 
     return new Response(
       JSON.stringify({
