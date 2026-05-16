@@ -4,6 +4,13 @@ echo "========================================="
 echo "Running AI code review..."
 echo "========================================="
 
+# Ensure upstream exists
+if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
+  echo "No upstream branch configured. Skipping AI review."
+  exit 0
+fi
+
+# Get diff between local and upstream
 DIFF=$(git diff @{u} HEAD)
 
 if [ -z "$DIFF" ]; then
@@ -11,7 +18,24 @@ if [ -z "$DIFF" ]; then
   exit 0
 fi
 
-PROMPT="
+# Skip in CI/CD
+if [ "$CI" = "true" ]; then
+  echo "CI environment detected. Skipping AI review."
+  exit 0
+fi
+
+# Prevent massive diffs
+MAX_SIZE=20000
+
+if [ ${#DIFF} -gt $MAX_SIZE ]; then
+  echo "Diff too large for AI review. Skipping."
+  exit 0
+fi
+
+# Create temporary prompt file
+TMP_FILE=$(mktemp)
+
+cat > "$TMP_FILE" <<EOF
 Review this git diff.
 
 Focus ONLY on:
@@ -35,11 +59,21 @@ Be concise and actionable.
 
 Git diff:
 $DIFF
-"
+EOF
 
 echo "Generating AI review..."
 
-RESULT=$(codex exec "$PROMPT")
+# Run Codex review and clean noisy CLI output
+if ! RESULT=$(codex exec < "$TMP_FILE" \
+  | awk '/^codex$/{flag=1;next} flag' \
+  | sed '/^tokens used/d'); then
+  echo "Codex review failed."
+  rm "$TMP_FILE"
+  exit 1
+fi
+
+# Cleanup temp file
+rm "$TMP_FILE"
 
 echo ""
 echo "========================================="
@@ -48,8 +82,10 @@ echo "========================================="
 echo "$RESULT"
 echo "========================================="
 
-# Save review to markdown file
-cat > code_review.md <<EOF
+# Save review outside tracked git files
+REVIEW_FILE=".git/code_review.md"
+
+cat > "$REVIEW_FILE" <<EOF
 # AI Code Review
 
 Generated on: $(date)
@@ -60,20 +96,25 @@ $RESULT
 EOF
 
 echo ""
-echo "Review saved to code_review.md"
-
-# Ask user whether to continue push
+echo "Review saved to $REVIEW_FILE"
 echo ""
-printf "Do you still want to push the code? (y/N): "
-read ANSWER
 
-case "$ANSWER" in
-  y|Y )
-    echo "Proceeding with push..."
-    exit 0
-    ;;
-  * )
-    echo "Push aborted. Please resolve review comments first."
-    exit 1
-    ;;
-esac
+# Ask user if they still want to push
+if [ -r /dev/tty ]; then
+  printf "Do you still want to push the code? (y/N): " > /dev/tty
+  read ANSWER < /dev/tty
+
+  case "$ANSWER" in
+    y|Y )
+      echo "Proceeding with push..."
+      exit 0
+      ;;
+    * )
+      echo "Push aborted. Please resolve review comments first."
+      exit 1
+      ;;
+  esac
+else
+  echo "Non-interactive shell detected. Push aborted."
+  exit 1
+fi
