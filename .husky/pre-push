@@ -2,7 +2,6 @@
 
 echo "Running AI code review..."
 
-# Compare local branch against remote tracking branch
 DIFF=$(git diff @{u} HEAD)
 
 if [ -z "$DIFF" ]; then
@@ -10,20 +9,28 @@ if [ -z "$DIFF" ]; then
   exit 0
 fi
 
-echo "$DIFF" | codex "
+PROMPT="
 Review this git diff.
 
 Focus ONLY on:
-- bugs
+- production bugs
 - race conditions
-- security issues
-- async mistakes
-- scalability problems
+- security vulnerabilities
+- async issues
 - TypeScript correctness
+- deployment risks
+- scalability concerns
 
 Ignore formatting/style comments.
 
-Be concise and actionable.
+Be concise.
+
+Git diff:
+$DIFF
 "
+
+RESULT=$(codex exec "$PROMPT")
+
+echo "$RESULT"
 
 echo "AI review complete."
