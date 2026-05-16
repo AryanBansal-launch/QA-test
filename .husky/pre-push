@@ -2,25 +2,28 @@
 
 echo "Running AI code review..."
 
-DIFF=$(git diff --cached)
+# Compare local branch against remote tracking branch
+DIFF=$(git diff @{u} HEAD)
 
 if [ -z "$DIFF" ]; then
-  echo "No staged changes."
+  echo "No changes to review."
   exit 0
 fi
 
 echo "$DIFF" | codex "
 Review this git diff.
 
-Focus on:
+Focus ONLY on:
 - bugs
-- TypeScript issues
-- async issues
-- performance problems
-- security risks
-- edge cases
+- race conditions
+- security issues
+- async mistakes
+- scalability problems
+- TypeScript correctness
 
-Be concise.
+Ignore formatting/style comments.
+
+Be concise and actionable.
 "
 
 echo "AI review complete."
