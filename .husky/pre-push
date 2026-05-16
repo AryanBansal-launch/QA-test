@@ -4,7 +4,7 @@ echo "========================================="
 echo "Running AI code review..."
 echo "========================================="
 
-# Ensure upstream exists
+# Ensure upstream branch exists
 if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
   echo "No upstream branch configured. Skipping AI review."
   exit 0
@@ -24,7 +24,7 @@ if [ "$CI" = "true" ]; then
   exit 0
 fi
 
-# Prevent massive diffs
+# Prevent huge diffs
 MAX_SIZE=20000
 
 if [ ${#DIFF} -gt $MAX_SIZE ]; then
@@ -32,7 +32,7 @@ if [ ${#DIFF} -gt $MAX_SIZE ]; then
   exit 0
 fi
 
-# Create temporary prompt file
+# Create temp prompt file
 TMP_FILE=$(mktemp)
 
 cat > "$TMP_FILE" <<EOF
@@ -63,10 +63,13 @@ EOF
 
 echo "Generating AI review..."
 
-# Run Codex review and clean noisy CLI output
-if ! RESULT=$(codex exec < "$TMP_FILE" \
-  | awk '/^codex$/{flag=1;next} flag' \
-  | sed '/^tokens used/d'); then
+# Run Codex and clean noisy CLI output
+if ! RESULT=$(codex exec < "$TMP_FILE" 2>&1 \
+  | awk '
+    /^codex$/ { capture=1; next }
+    /^tokens used/ { capture=0 }
+    capture
+  '); then
   echo "Codex review failed."
   rm "$TMP_FILE"
   exit 1
@@ -99,7 +102,7 @@ echo ""
 echo "Review saved to $REVIEW_FILE"
 echo ""
 
-# Ask user if they still want to push
+# Ask user whether to continue push
 if [ -r /dev/tty ]; then
   printf "Do you still want to push the code? (y/N): " > /dev/tty
   read ANSWER < /dev/tty
