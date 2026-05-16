@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+echo "Running AI code review..."
+
+DIFF=$(git diff HEAD @{u})
+
+echo "$DIFF" | codex ask "
+Review this git diff.
+
+Focus on:
+- bugs
+- TypeScript issues
+- async issues
+- performance problems
+- security risks
+- edge cases
+
+Be concise.
+"
+
+if [ $? -ne 0 ]; then
+  echo "AI review failed"
+  exit 1
+fi
+
+echo "Pre-push review completed."
