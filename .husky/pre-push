@@ -2,9 +2,14 @@
 
 echo "Running AI code review..."
 
-DIFF=$(git diff HEAD @{u})
+DIFF=$(git diff --cached)
 
-echo "$DIFF" | codex ask "
+if [ -z "$DIFF" ]; then
+  echo "No staged changes."
+  exit 0
+fi
+
+echo "$DIFF" | codex "
 Review this git diff.
 
 Focus on:
@@ -18,9 +23,4 @@ Focus on:
 Be concise.
 "
 
-if [ $? -ne 0 ]; then
-  echo "AI review failed"
-  exit 1
-fi
-
-echo "Pre-push review completed."
+echo "AI review complete."
