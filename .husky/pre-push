@@ -18,10 +18,18 @@ if [ -z "$DIFF" ]; then
   exit 0
 fi
 
-# Skip in CI/CD
-if [ "$CI" = "true" ]; then
-  echo "CI environment detected. Skipping AI review."
+# Skip in CI/CD or when explicitly opted out
+if [ "$CI" = "true" ] || [ "$SKIP_AI_REVIEW" = "true" ]; then
+  echo "Skipping AI review (CI or SKIP_AI_REVIEW=true)."
   exit 0
+fi
+
+# Fail-closed when no TTY — user can't confirm the review, so block the push
+# Use CI=true or SKIP_AI_REVIEW=true to opt out explicitly.
+if [ ! -r /dev/tty ] || [ ! -w /dev/tty ]; then
+  echo "Non-interactive shell detected and no opt-out set."
+  echo "Set CI=true or SKIP_AI_REVIEW=true to bypass. Push aborted."
+  exit 1
 fi
 
 # Prevent huge diffs
@@ -102,22 +110,17 @@ echo ""
 echo "Review saved to $REVIEW_FILE"
 echo ""
 
-# Ask user whether to continue push
-if [ -r /dev/tty ]; then
-  printf "Do you still want to push the code? (y/N): " > /dev/tty
-  read ANSWER < /dev/tty
+# Ask user whether to continue push (TTY availability already verified above)
+printf "Do you still want to push the code? (y/N): " > /dev/tty
+read ANSWER < /dev/tty
 
-  case "$ANSWER" in
-    y|Y )
-      echo "Proceeding with push..."
-      exit 0
-      ;;
-    * )
-      echo "Push aborted. Please resolve review comments first."
-      exit 1
-      ;;
-  esac
-else
-  echo "Non-interactive shell detected. Push aborted."
-  exit 1
-fi
+case "$ANSWER" in
+  y|Y )
+    echo "Proceeding with push..."
+    exit 0
+    ;;
+  * )
+    echo "Push aborted. Please resolve review comments first."
+    exit 1
+    ;;
+esac
