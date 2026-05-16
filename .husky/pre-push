@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
+echo "========================================="
 echo "Running AI code review..."
+echo "========================================="
 
 DIFF=$(git diff @{u} HEAD)
 
@@ -23,14 +25,55 @@ Focus ONLY on:
 
 Ignore formatting/style comments.
 
-Be concise.
+Response format:
+- Severity (High/Medium/Low)
+- File affected
+- Issue
+- Suggested fix
+
+Be concise and actionable.
 
 Git diff:
 $DIFF
 "
 
+echo "Generating AI review..."
+
 RESULT=$(codex exec "$PROMPT")
 
+echo ""
+echo "========================================="
+echo "AI REVIEW"
+echo "========================================="
 echo "$RESULT"
+echo "========================================="
 
-echo "AI review complete."
+# Save review to markdown file
+cat > code_review.md <<EOF
+# AI Code Review
+
+Generated on: $(date)
+
+## Review Result
+
+$RESULT
+EOF
+
+echo ""
+echo "Review saved to code_review.md"
+
+# Ask user whether to continue push
+echo ""
+printf "Do you still want to push the code? (y/N): "
+read ANSWER
+
+case "$ANSWER" in
+  y|Y )
+    echo "Proceeding with push..."
+    exit 0
+    ;;
+  * )
+    echo "Push aborted. Please resolve review comments first."
+    exit 1
+    ;;
+esac
