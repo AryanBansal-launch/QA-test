@@ -3,6 +3,8 @@ export async function GET() {
   
     const stream = new ReadableStream({
       async start(controller) {
+        await new Promise(resolve => setTimeout(resolve, 6000));
+
         const chunks = [
           "Starting process...\n",
           "Step 1: Connecting to database...\n",
