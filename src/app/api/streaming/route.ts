@@ -1,9 +1,11 @@
+const delay = parseInt(process.env.REQUEST_TIMEOUT ?? "6000", 10);
+
 export async function GET() {
     const encoder = new TextEncoder();
-  
+
     const stream = new ReadableStream({
       async start(controller) {
-        await new Promise(resolve => setTimeout(resolve, 6000));
+        await new Promise(resolve => setTimeout(resolve, delay));
 
         const chunks = [
           "Starting process...\n",
