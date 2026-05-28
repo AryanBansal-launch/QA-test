@@ -1,0 +1,170 @@
+#!/usr/bin/env sh
+
+echo "========================================="
+echo "Pre-push AI code review"
+echo "========================================="
+
+# Upstream check
+if ! git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
+  echo "No upstream branch configured. Skipping AI review."
+  exit 0
+fi
+
+DIFF=$(git diff @{u} HEAD)
+if [ -z "$DIFF" ]; then
+  echo "No changes to review."
+  exit 0
+fi
+
+# CI / opt-out
+if [ "$CI" = "true" ] || [ "$SKIP_AI_REVIEW" = "true" ]; then
+  echo "Skipping AI review (CI or SKIP_AI_REVIEW=true)."
+  exit 0
+fi
+
+# Needs a TTY for interactive prompts
+if [ ! -r /dev/tty ] || [ ! -w /dev/tty ]; then
+  echo "Non-interactive shell. Set CI=true or SKIP_AI_REVIEW=true to bypass. Push aborted."
+  exit 1
+fi
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+SAFE_BRANCH=$(echo "$BRANCH" | tr '/' '-')
+TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
+OUT_DIR="$REPO_ROOT/reviews"
+mkdir -p "$OUT_DIR"
+
+# Diff size guard
+MAX_SIZE=20000
+if [ ${#DIFF} -gt $MAX_SIZE ]; then
+  echo "Diff too large (${#DIFF} chars > $MAX_SIZE). Skipping AI review."
+  REVIEWER="skip"
+else
+  printf "Choose reviewer:\n  [c] Claude\n  [x] Codex\n  [b] Both\n  [s] Skip review\nSelection (c/x/b/s): " > /dev/tty
+  read REVIEWER_INPUT < /dev/tty
+  case "$REVIEWER_INPUT" in
+    c|C|claude|Claude) REVIEWER="claude" ;;
+    x|X|codex|Codex)   REVIEWER="codex" ;;
+    b|B|both|Both)     REVIEWER="both" ;;
+    *)                  REVIEWER="skip" ;;
+  esac
+fi
+
+run_codex() {
+  if ! command -v codex >/dev/null 2>&1; then
+    echo "codex CLI not found — skipping Codex review."
+    return 1
+  fi
+
+  TMP_FILE=$(mktemp)
+  cat > "$TMP_FILE" <<EOF
+Review this git diff.
+
+Focus ONLY on:
+- production bugs
+- race conditions
+- security vulnerabilities
+- async issues
+- TypeScript correctness
+- deployment risks
+- scalability concerns
+
+Ignore formatting/style comments.
+
+Response format:
+- Severity (High/Medium/Low)
+- File affected
+- Issue
+- Suggested fix
+
+Be concise and actionable.
+
+Git diff:
+$DIFF
+EOF
+
+  echo "Running Codex review..."
+  RESULT=$(codex exec < "$TMP_FILE" 2>&1 | awk '
+    /^codex$/ { capture=1; next }
+    /^tokens used/ { capture=0 }
+    capture
+  ')
+  rm "$TMP_FILE"
+
+  OUT="$OUT_DIR/${SAFE_BRANCH}-${TIMESTAMP}-codex.md"
+  {
+    echo "# Codex Review — $BRANCH"
+    echo ""
+    echo "_Generated $(date)_"
+    echo ""
+    echo "$RESULT"
+  } > "$OUT"
+
+  echo ""
+  echo "========== CODEX REVIEW =========="
+  echo "$RESULT"
+  echo "=================================="
+  echo "Saved: $OUT"
+}
+
+run_claude() {
+  if ! command -v claude >/dev/null 2>&1; then
+    echo "claude CLI not found — skipping Claude review."
+    return 1
+  fi
+
+  PROMPT="You are reviewing a pull request. Produce a concise markdown code review with these sections:
+# Summary
+One paragraph: what this change does and why.
+# Risk & Correctness
+Bugs, edge cases, breaking changes, security issues. Cite file:line.
+# Suggestions
+Cleanups, simplifications, naming, dead code. Cite file:line.
+# Tests
+What's covered, what's missing.
+# Verdict
+ship-it / minor-changes / needs-work — with one-line rationale.
+
+Branch: $BRANCH
+
+Diff:
+\`\`\`diff
+$DIFF
+\`\`\`
+"
+
+  echo "Running Claude review..."
+  RESULT=$(printf '%s' "$PROMPT" | claude -p 2>/dev/null)
+
+  OUT="$OUT_DIR/${SAFE_BRANCH}-${TIMESTAMP}-claude.md"
+  {
+    echo "# Claude Review — $BRANCH"
+    echo ""
+    echo "_Generated $(date)_"
+    echo ""
+    echo "$RESULT"
+  } > "$OUT"
+
+  echo ""
+  echo "========== CLAUDE REVIEW =========="
+  echo "$RESULT"
+  echo "==================================="
+  echo "Saved: $OUT"
+}
+
+case "$REVIEWER" in
+  claude) run_claude ;;
+  codex)  run_codex  ;;
+  both)   run_codex; run_claude ;;
+  skip)   echo "Skipping AI review." ;;
+esac
+
+# Push confirmation
+echo ""
+printf "Push changes now? (y/N): " > /dev/tty
+read ANSWER < /dev/tty
+case "$ANSWER" in
+  y|Y|yes|Yes ) echo "Proceeding with push..."; exit 0 ;;
+  * )           echo "Push aborted."; exit 1 ;;
+esac
