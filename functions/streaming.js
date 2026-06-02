@@ -16,7 +16,6 @@ export default async function handler(req, res) {
   const encoder = new TextEncoder();
 
   res.status(200);
-  res.setHeader("Content-Type", "text/plain; charset=utf-8");
   res.setHeader("Cache-Control", "no-cache");
 
   await new Promise((resolve) => setTimeout(resolve, delay));
