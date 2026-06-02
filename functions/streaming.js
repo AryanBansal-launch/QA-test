@@ -13,9 +13,7 @@ export default async function handler(req, res) {
   console.log("my env:", process.env.REQUEST_TIMEOUT);
 
   // Mirror the App Router route (src/app/api/streaming/route.ts): same headers,
-  // same TextEncoder byte chunks, same initial delay, same 700ms cadence.
-  const encoder = new TextEncoder();
-
+  // same initial delay, same 700ms cadence.
   res.status(200);
   res.setHeader("Cache-Control", "no-cache");
 
@@ -31,17 +29,15 @@ export default async function handler(req, res) {
   ];
 
   for (const chunk of chunks) {
-    // ReadableStream's controller.enqueue() has no res equivalent;
-    // write the encoded bytes instead.
-    res.write(encoder.encode(chunk));
+    res.write(chunk);
     // Nudge the platform to flush this chunk now rather than buffer to the end.
     if (typeof res.flush === "function") res.flush();
     await new Promise((resolve) => setTimeout(resolve, 700));
   }
 
   // Print the runtime env vars as a final chunk.
-  res.write(encoder.encode("\n--- env ---\n"));
-  res.write(encoder.encode(JSON.stringify(process.env, null, 2) + "\n"));
+  res.write("\n--- env ---\n");
+  res.write(JSON.stringify(process.env, null, 2) + "\n");
 
   res.end();
 }
