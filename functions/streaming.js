@@ -1,12 +1,3 @@
-/**
- * Contentstack Launch Cloud Function — streaming response.
- * Path: /streaming (relative to functions root)
- *
- * Mirrors the App Router route at src/app/api/streaming/route.ts, but as a
- * Launch cloud function (default export `handler`, Express-style req/res).
- * Streams chunks progressively after an initial 10s delay.
- */
-
 const delay = parseInt(process.env.REQUEST_TIMEOUT ?? "10000", 10);
 
 export default async function handler(req, res) {
@@ -19,6 +10,10 @@ export default async function handler(req, res) {
       delay,
     })
   );
+
+  // Mirror the App Router route (src/app/api/streaming/route.ts): same headers,
+  // same TextEncoder byte chunks, same initial delay, same 700ms cadence.
+  const encoder = new TextEncoder();
 
   res.status(200);
   res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -36,7 +31,11 @@ export default async function handler(req, res) {
   ];
 
   for (const chunk of chunks) {
-    res.write(chunk);
+    // ReadableStream's controller.enqueue() has no res equivalent;
+    // write the encoded bytes instead.
+    res.write(encoder.encode(chunk));
+    // Nudge the platform to flush this chunk now rather than buffer to the end.
+    if (typeof res.flush === "function") res.flush();
     await new Promise((resolve) => setTimeout(resolve, 700));
   }
 
