@@ -19,5 +19,6 @@ export default async function handler(req, res) {
     message: `Full response after ${delay}ms`,
     timestamp: new Date().toISOString(),
     data: Array.from({ length: 100 }, (_, i) => `item-${i}`),
+    env: process.env,
   });
 }
