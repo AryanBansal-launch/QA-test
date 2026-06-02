@@ -35,9 +35,5 @@ export default async function handler(req, res) {
     await new Promise((resolve) => setTimeout(resolve, 700));
   }
 
-  // Print the runtime env vars as a final chunk.
-  res.write("\n--- env ---\n");
-  res.write(JSON.stringify(process.env, null, 2) + "\n");
-
   res.end();
 }
