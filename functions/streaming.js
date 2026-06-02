@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     res.write(chunk);
     // Nudge the platform to flush this chunk now rather than buffer to the end.
     if (typeof res.flush === "function") res.flush();
-    await new Promise((resolve) => setTimeout(resolve, 700));
+    await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 
   res.end();
