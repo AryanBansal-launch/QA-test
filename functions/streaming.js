@@ -10,6 +10,7 @@ export default async function handler(req, res) {
       delay,
     })
   );
+  console.log("my env:", process.env.REQUEST_TIMEOUT);
 
   // Mirror the App Router route (src/app/api/streaming/route.ts): same headers,
   // same TextEncoder byte chunks, same initial delay, same 700ms cadence.
