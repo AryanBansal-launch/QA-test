@@ -2,14 +2,14 @@
   "redirects": [
     {
       "source": "/about",
-      "destination": "/contact",
+      "destination": "/test2",
       "statusCode": 302
     }
   ],
   "rewrites": [
     {
       "source": "/test",
-      "destination": "/test2"
+      "destination": "/contact"
     }
   ]
 }
