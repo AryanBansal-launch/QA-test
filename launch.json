@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/:path*",
-      "destination": "https://r.eu-north-1.awstrack.me/:path*"
+      "source": "/wf/:path*",
+      "destination": "https://r.eu-north-1.awstrack.me/wf/:path*"
     }
   ]
 }
