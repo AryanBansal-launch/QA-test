@@ -1,15 +1,8 @@
 {
-  "redirects": [
-    {
-      "source": "/about",
-      "destination": "/test2",
-      "statusCode": 302
-    }
-  ],
   "rewrites": [
     {
-      "source": "/test",
-      "destination": "/contact"
+      "source": "/:path*",
+      "destination": "https://r.eu-north-1.awstrack.me/:path*"
     }
   ]
 }
