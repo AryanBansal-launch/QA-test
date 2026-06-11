@@ -1,8 +1,8 @@
-export default function handler(request) {
-    const u = new URL(request.url);
-    return fetch("https://r.eu-north-1.awstrack.me" + u.pathname + u.search, {
-      method: request.method,
-      headers: request.headers,
-      redirect: "manual",
-    });
-  }
+export default function handler(request){
+      const url = new URL(request.url);
+      url.hostname = 'r.eu-north-1.awstrack.me';
+  
+      return fetch(url.toString(), {
+        redirect: 'manual'
+      });
+    }
