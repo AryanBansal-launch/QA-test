@@ -4,7 +4,7 @@ export default function handler(request) {
   // Handle click tracking routes
   if (url.pathname.startsWith('/CL0/') || url.pathname.startsWith('/CI0/')) {
     const originalHost = url.hostname;
-    url.hostname = 'r.eu-north-1.awstrack.me';
+    url.hostname = 'click.t.bansalapp.digital';
 
     const headers = new Headers(request.headers);
     headers.set('Host', originalHost);
