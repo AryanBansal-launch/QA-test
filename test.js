@@ -8,7 +8,7 @@ const command = new SendEmailCommand({
       ToAddresses: ["bansalaryan2929@gmail.com"],
     },
     Message: {
-      Subject: { Data: "Click tracking test v3" },
+      Subject: { Data: "Click tracking test v3 with vinesh sir" },
       Body: {
         Html: {
           Data: `

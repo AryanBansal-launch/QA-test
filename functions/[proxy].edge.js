@@ -1,17 +1,21 @@
 export default function handler(request) {
   const url = new URL(request.url);
-  const originalHost = url.hostname; // click.bansalapp.digital
 
-  // Route to AWS endpoint
-  url.hostname = 'r.eu-north-1.awstrack.me';
+  // Handle click tracking routes
+  if (url.pathname.startsWith('/CL0/') || url.pathname.startsWith('/CI0/')) {
+    const originalHost = url.hostname;
+    url.hostname = 'r.eu-north-1.awstrack.me';
 
-  const headers = new Headers(request.headers);
-  // CRITICAL: Preserve original host so HMAC validates correctly
-  headers.set('Host', originalHost);
+    const headers = new Headers(request.headers);
+    headers.set('Host', originalHost);
 
-  return fetch(url.toString(), {
-    method: request.method,
-    headers: headers,
-    redirect: 'manual',
-  });
+    return fetch(url.toString(), {
+      method: request.method,
+      headers,
+      redirect: 'manual',
+    });
+  }
+
+  // Fall through to existing inject-robots-tag logic
+  // ...existing code...
 }
