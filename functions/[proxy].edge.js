@@ -17,7 +17,7 @@ export default async function handler(request) {
 
   const headers = new Headers(request.headers);
   // CRITICAL: Preserve original host so HMAC validates correctly
-  headers.set('Host', originalHost);
+  // headers.set('Host', originalHost);
 
   const target = url.toString();
   console.log('[proxy] ▶ forwarding to', target);
