@@ -1,21 +1,24 @@
-export default function handler(request) {
+export default async function handler(request) {
   const url = new URL(request.url);
+  const originalHost = url.hostname;
+  url.hostname = 'r.eu-north-1.awstrack.me';
 
-  // Handle click tracking routes
-  if (url.pathname.startsWith('/CL0/') || url.pathname.startsWith('/CI0/')) {
-    const originalHost = url.hostname;
-    url.hostname = 'click.t.bansalapp.digital';
+  const headers = new Headers(request.headers);
+  headers.set('Host', originalHost);
 
-    const headers = new Headers(request.headers);
-    headers.set('Host', originalHost);
+  // Log every outgoing header
+  const headersObj = {};
+  headers.forEach((value, key) => { headersObj[key] = value; });
+  console.log('Outgoing URL:', url.toString());
+  console.log('Outgoing headers:', JSON.stringify(headersObj));
+  console.log('Host header value:', headers.get('Host'));
 
-    return fetch(url.toString(), {
-      method: request.method,
-      headers,
-      redirect: 'manual',
-    });
-  }
+  const res = await fetch(url.toString(), {
+    method: request.method,
+    headers,
+    redirect: 'manual',
+  });
 
-  // Fall through to existing inject-robots-tag logic
-  // ...existing code...
+  console.log('Response status from AWS:', res.status);
+  return res;
 }
