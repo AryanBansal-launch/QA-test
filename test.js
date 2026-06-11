@@ -12,13 +12,13 @@ const command = new SendEmailCommand({
       Body: {
         Html: {
           Data: `
-            <h1>Click tracking test</h1>
+            <h1>Click tracking test using SES with edge fn</h1>
             <a href="marketplace.bansalapp.digital">Link 1</a><br/><br/>
           `,
         },
       },
     },
-    ConfigurationSetName: "bansalapp-config",
+    ConfigurationSetName: "click-track-config",
   });
 
 client.send(command)
