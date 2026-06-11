@@ -15,8 +15,11 @@ export default async function handler(request) {
 
   const res = await fetch(url.toString(), {
     method: request.method,
-    headers,
+    headers: request.headers,
     redirect: 'manual',
+    cf: {
+      resolveOverride: 'r.eu-north-1.awstrack.me'  // route to AWS without changing the host
+    }
   });
 
   console.log('Response status from AWS:', res.status);
