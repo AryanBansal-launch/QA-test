@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    nodeMiddleware: true, // allow middleware to run on the Node.js runtime (undici / node:dns)
-  },
   async headers() {
     return [
       {
