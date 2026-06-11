@@ -13,8 +13,7 @@ const command = new SendEmailCommand({
         Html: {
           Data: `
             <h1>Click tracking test</h1>
-            <a href="https://bansalapp.digital">Link 1</a><br/><br/>
-            <a href="https://marketplace.bansalapp.digital">Link 2</a>
+            <a href="marketplace.bansalapp.digital">Link 1</a><br/><br/>
           `,
         },
       },
