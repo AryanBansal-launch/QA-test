@@ -1,15 +1,28 @@
 import https from "node:https";
 import type { NextRequest } from "next/server";
+import { apiLog } from "@/lib/api-log";
 
-// Must run on Node — the edge runtime can't set TLS SNI (servername)
-// independently of the Host header, which is exactly what this proxy needs.
+// Must run on Node: the edge runtime can't set TLS SNI independently of the Host header.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// Where the bytes actually go (DNS + TLS SNI).
-const TARGET_HOST = "r.eu-north-1.awstrack.me";
-// What AWS sees in the Host header so it maps the branded tracking link.
-const BRAND_HOST = "click.bansalapp.digital";
+const TARGET_HOST = "r.eu-north-1.awstrack.me"; // DNS + TLS SNI target
+const BRAND_HOST = "click.bansalapp.digital"; // Host header AWS maps the link by
+
+// SES awstrack prefixes: L0/CL0 (click), O0/CO0 (open pixel).
+function trackingType(pathname: string): "click" | "open" | null {
+  if (/^\/C?L0\//.test(pathname)) return "click";
+  if (/^\/C?O0\//.test(pathname)) return "open";
+  return null;
+}
+
+function requestHost(req: NextRequest): string {
+  return (req.headers.get("x-forwarded-host") ?? req.headers.get("host") ?? "")
+    .split(",")[0]
+    .split(":")[0]
+    .trim()
+    .toLowerCase();
+}
 
 const HOP_BY_HOP = new Set([
   "connection",
@@ -23,6 +36,26 @@ const HOP_BY_HOP = new Set([
 
 async function proxy(req: NextRequest): Promise<Response> {
   const url = new URL(req.url);
+  const host = requestHost(req);
+  const type = trackingType(url.pathname);
+
+  // Not a branded tracking request → behave like any other unmatched route.
+  if (host !== BRAND_HOST || type === null) {
+    apiLog("proxy", "gate: skipped (not a branded tracking request)", {
+      method: req.method,
+      host,
+      path: url.pathname,
+      reason: host !== BRAND_HOST ? "wrong-host" : "non-tracking-path",
+    });
+    return new Response("Not Found", { status: 404 });
+  }
+
+  apiLog("proxy", "gate: accepted tracking request", {
+    method: req.method,
+    type, // "click" | "open"
+    host,
+    path: url.pathname,
+  });
 
   const forwardHeaders: Record<string, string> = {};
   for (const [key, val] of req.headers.entries()) {
@@ -37,12 +70,7 @@ async function proxy(req: NextRequest): Promise<Response> {
       ? undefined
       : Buffer.from(await req.arrayBuffer());
 
-  console.log("------- OUTGOING REQUEST -------");
-  console.log(`${req.method} https://${TARGET_HOST}${url.pathname}${url.search}`);
-  for (const [key, val] of Object.entries(forwardHeaders)) {
-    console.log(`  ${key}: ${val}`);
-  }
-  console.log("--------------------------------");
+  const startedAt = Date.now();
 
   return new Promise<Response>((resolve) => {
     const proxyReq = https.request(
@@ -59,7 +87,31 @@ async function proxy(req: NextRequest): Promise<Response> {
         proxyRes.on("data", (c) => chunks.push(c));
         proxyRes.on("end", () => {
           const respBody = Buffer.concat(chunks);
-          console.log("AWS status:", proxyRes.statusCode);
+          const status = proxyRes.statusCode ?? 502;
+          const destination = proxyRes.headers["location"] ?? null;
+          const elapsedMs = Date.now() - startedAt;
+
+          // click → 3xx + Location; open pixel → 200. Anything else is suspect.
+          const verified =
+            type === "click"
+              ? status >= 300 && status < 400 && destination !== null
+              : status === 200;
+
+          apiLog(
+            "proxy",
+            verified
+              ? `tracking OK — ${type} resolved`
+              : `tracking FAILED — unexpected ${type} response`,
+            {
+              type,
+              upstream: TARGET_HOST,
+              brandHost: BRAND_HOST,
+              status,
+              destination, // where the click forwards the user
+              elapsedMs,
+              bytes: respBody.length,
+            }
+          );
 
           const headers = new Headers();
           for (const [key, val] of Object.entries(proxyRes.headers)) {
@@ -70,7 +122,7 @@ async function proxy(req: NextRequest): Promise<Response> {
           // redirect: 'manual' equivalent — pass AWS's 30x + Location through untouched.
           resolve(
             new Response(respBody, {
-              status: proxyRes.statusCode ?? 502,
+              status,
               headers,
             })
           );
@@ -79,7 +131,12 @@ async function proxy(req: NextRequest): Promise<Response> {
     );
 
     proxyReq.on("error", (err) => {
-      console.error("Proxy error:", err.message);
+      apiLog("proxy", "tracking FAILED — upstream error", {
+        type,
+        upstream: TARGET_HOST,
+        error: err.message,
+        elapsedMs: Date.now() - startedAt,
+      });
       resolve(new Response("Bad Gateway", { status: 502 }));
     });
 
