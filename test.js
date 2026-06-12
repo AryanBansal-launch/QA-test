@@ -5,7 +5,7 @@ const client = new SESClient({ region: "eu-north-1" });
 const command = new SendEmailCommand({
     Source: "aryan@bansalapp.digital",
     Destination: {
-      ToAddresses: ["bansalaryan2929@gmail.com"],
+      ToAddresses: ["sakshi.koli@contentstack.com"],
     },
     Message: {
       Subject: { Data: "Click tracking test v3 with vinesh sir" },
@@ -18,7 +18,7 @@ const command = new SendEmailCommand({
         },
       },
     },
-    ConfigurationSetName: "bansalapp-config",
+    ConfigurationSetName: "sakshi-click-track",
   });
 
 client.send(command)
