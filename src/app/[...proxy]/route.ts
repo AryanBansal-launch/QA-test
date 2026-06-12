@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const TARGET_HOST = "r.eu-north-1.awstrack.me"; // actual AWS server (TLS + TCP)
-const BRAND_HOST = "click.bansalapp.digital";    // our domain (sent as Host header)
+const BRAND_HOST = "click.s.bansalapp.digital";    // our domain (sent as Host header)
 
 // These headers must not be forwarded — they are only valid for a single hop
 const HOP_BY_HOP = new Set([
