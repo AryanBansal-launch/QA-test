@@ -64,6 +64,8 @@ async function proxy(req: NextRequest): Promise<Response> {
             if (val == null || HOP_BY_HOP.has(key.toLowerCase())) continue;
             headers.set(key, Array.isArray(val) ? val.join(", ") : String(val));
           }
+          // Prevent browsers and CDNs from caching tracking responses
+          headers.set("cache-control", "no-store, no-cache");
           resolve(new Response(Buffer.concat(chunks), {
             status: proxyRes.statusCode ?? 502,
             headers,
