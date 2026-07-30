@@ -1,0 +1,98 @@
+{
+  "test": {
+    "uid": "6a678a21432be33094478497",
+    "name": "test-rollback-cli",
+    "projectType": "GITPROVIDER",
+    "organizationUid": "blt8ca9ce72e25d0172",
+    "environments": [
+      {
+        "uid": "6a678a21432be3309447849e",
+        "name": "Default",
+        "frameworkPreset": "NEXTJS",
+        "__typename": "Environment"
+      }
+    ],
+    "repository": {
+      "username": "AryanBansal-launch",
+      "repositoryName": "AryanBansal-launch/QA-test",
+      "gitProviderMetadata": {
+        "gitProvider": "GitHub",
+        "__typename": "GitHubMetadata"
+      },
+      "__typename": "Repository"
+    },
+    "__typename": "Project",
+    "deployments": [
+      {
+        "uid": "6a678a22432be330944784a9",
+        "status": "QUEUED",
+        "commitUrl": "https://github.com/AryanBansal-launch/QA-test/commit/d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "createdAt": "2026-07-27T16:41:06.555Z",
+        "updatedAt": "2026-07-27T16:41:06.555Z",
+        "deploymentUrl": "test-rollback-cli.devcontentstackapps.com",
+        "commitHash": "d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "commitMessage": "Simplify README by removing extra package manager commands\n\nRemoved alternative commands for starting the development server.",
+        "__typename": "Deployment"
+      },
+      {
+        "uid": "6a678ad2e7445a3a4b526800",
+        "status": "QUEUED",
+        "commitUrl": "https://github.com/AryanBansal-launch/QA-test/commit/d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "createdAt": "2026-07-27T16:44:02.330Z",
+        "updatedAt": "2026-07-27T16:44:02.330Z",
+        "commitHash": "d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "commitMessage": "Simplify README by removing extra package manager commands\n\nRemoved alternative commands for starting the development server.",
+        "deploymentUrl": "test-rollback-cli.devcontentstackapps.com",
+        "__typename": "Deployment"
+      }
+    ]
+  },
+  "project": {
+    "uid": "6a678a21432be33094478497",
+    "name": "test-rollback-cli",
+    "projectType": "GITPROVIDER",
+    "organizationUid": "blt8ca9ce72e25d0172",
+    "environments": [
+      {
+        "uid": "6a678a21432be3309447849e",
+        "name": "Default",
+        "frameworkPreset": "NEXTJS",
+        "__typename": "Environment"
+      }
+    ],
+    "repository": {
+      "username": "AryanBansal-launch",
+      "repositoryName": "AryanBansal-launch/QA-test",
+      "gitProviderMetadata": {
+        "gitProvider": "GitHub",
+        "__typename": "GitHubMetadata"
+      },
+      "__typename": "Repository"
+    },
+    "__typename": "Project",
+    "deployments": [
+      {
+        "uid": "6a678a22432be330944784a9",
+        "status": "QUEUED",
+        "commitUrl": "https://github.com/AryanBansal-launch/QA-test/commit/d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "createdAt": "2026-07-27T16:41:06.555Z",
+        "updatedAt": "2026-07-27T16:41:06.555Z",
+        "deploymentUrl": "test-rollback-cli.devcontentstackapps.com",
+        "commitHash": "d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "commitMessage": "Simplify README by removing extra package manager commands\n\nRemoved alternative commands for starting the development server.",
+        "__typename": "Deployment"
+      },
+      {
+        "uid": "6a678ad2e7445a3a4b526800",
+        "status": "QUEUED",
+        "commitUrl": "https://github.com/AryanBansal-launch/QA-test/commit/d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "createdAt": "2026-07-27T16:44:02.330Z",
+        "updatedAt": "2026-07-27T16:44:02.330Z",
+        "commitHash": "d556e103e0d75e03a5adaf3cdf35b40b5818c855",
+        "commitMessage": "Simplify README by removing extra package manager commands\n\nRemoved alternative commands for starting the development server.",
+        "deploymentUrl": "test-rollback-cli.devcontentstackapps.com",
+        "__typename": "Deployment"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{"level":"error","message":"Repository not added to the GitHub app. Please add it to the app’s repository access list and try again."}
+{"level":"error","message":"Repository not added to the GitHub app. Please add it to the app’s repository access list and try again."}
+{"level":"error","message":"New project creation failed!"}
+{"level":"error","message":"Duplicate project name identified"}
+{"level":"error","message":"{\"message\":\"The request took too long to process. Please try again later.\",\"path\":[\"getLogs\"],\"extensions\":{\"code\":\"launch.LOGS.REQUEST_TIMEOUT\",\"status\":504}}"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"{\"message\":\"The request took too long to process. Please try again later.\",\"path\":[\"getServerlessLogs\"],\"extensions\":{\"code\":\"launch.LOGS.REQUEST_TIMEOUT\",\"status\":504}}"}
+{"level":"error","message":"Repository not added to the GitHub app. Please add it to the app’s repository access list and try again."}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}
+{"level":"error","message":"launch.PROJECT.NOT_FOUND"}

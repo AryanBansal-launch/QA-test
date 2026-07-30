@@ -1,0 +1,17 @@
+{
+  "command": "auth:login",
+  "module": "login",
+  "userId": "37133490-3c9e-5215-9639-110e7c986715",
+  "email": "",
+  "sessionId": "pisZehDgkkZwXeVUEJP3Ua",
+  "apiKey": "blt762a730261282d85",
+  "orgId": "",
+  "authenticationMethod": "",
+  "startTimestamp": "2026-07-24T09:21:25.782Z",
+  "MachineEnvironment": {
+    "nodeVersion": "v22.14.0",
+    "os": "darwin",
+    "hostname": "AryanBansal-Mac",
+    "CLI_VERSION": "1.62.1"
+  }
+}

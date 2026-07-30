@@ -1,0 +1,354 @@
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"User access verified"}
+{"level":"info","message":"Skipped adding environment variables."}
+{"level":"info","message":"New project created successfully"}
+{"level":"info","message":"2026-07-24 08:07:28.354:  —— Step 1: Setting up build environment ——"}
+{"level":"info","message":"2026-07-24 08:07:28.359:  Cloning repository..."}
+{"level":"info","message":"2026-07-24 08:07:36.482:  [BUILD MACHINE RESOURCES]  CPU: 2 vCPUs · Memory: 4GB · Storage: 6GB"}
+{"level":"info","message":"2026-07-24 08:07:36.492:  Response Mode: Buffered"}
+{"level":"info","message":"2026-07-24 08:07:42.134:  Current Node.js Version: v24.16.0"}
+{"level":"info","message":"2026-07-24 08:07:42.136:  —— Step 2: Installing Dependencies ——"}
+{"level":"info","message":"2026-07-24 08:07:42.138:  Installing dependencies..."}
+{"level":"info","message":"Existing launch project identified"}
+{"level":"info","message":"Cannot create a new project because its an existing project."}
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"User access verified"}
+{"level":"info","message":"Skipped adding environment variables."}
+{"level":"info","message":"New project created successfully"}
+{"level":"info","message":"2026-07-24 08:18:30.062:  —— Step 1: Setting up build environment ——"}
+{"level":"info","message":"2026-07-24 08:18:30.068:  Cloning repository..."}
+{"level":"info","message":"2026-07-24 08:18:38.075:  [BUILD MACHINE RESOURCES]  CPU: 2 vCPUs · Memory: 4GB · Storage: 6GB"}
+{"level":"info","message":"2026-07-24 08:18:38.077:  Response Mode: Buffered"}
+{"level":"info","message":"2026-07-24 08:18:42.769:  Current Node.js Version: v24.16.0"}
+{"level":"info","message":"2026-07-24 08:18:42.772:  —— Step 2: Installing Dependencies ——"}
+{"level":"info","message":"2026-07-24 08:18:42.773:  Installing dependencies..."}
+{"level":"info","message":"2026-07-24 08:19:01.458:  > my-app@0.1.0 prepare"}
+{"level":"info","message":"2026-07-24 08:19:01.460:  > husky"}
+{"level":"info","message":"2026-07-24 08:19:01.616:  git command not found"}
+{"level":"info","message":"2026-07-24 08:19:01.618:  added 400 packages, and audited 401 packages in 19s"}
+{"level":"info","message":"2026-07-24 08:19:01.620:  150 packages are looking for funding"}
+{"level":"info","message":"2026-07-24 08:19:01.621:    run `npm fund` for details"}
+{"level":"info","message":"2026-07-24 08:19:01.660:  11 vulnerabilities (2 low, 1 moderate, 8 high)"}
+{"level":"info","message":"2026-07-24 08:19:01.662:  To address issues that do not require attention, run:"}
+{"level":"info","message":"2026-07-24 08:19:01.663:    npm audit fix"}
+{"level":"info","message":"2026-07-24 08:19:01.665:  To address all issues (including breaking changes), run:"}
+{"level":"info","message":"2026-07-24 08:19:01.667:    npm audit fix --force"}
+{"level":"info","message":"2026-07-24 08:19:01.668:  Run `npm audit` for details."}
+{"level":"info","message":"2026-07-24 08:19:01.670:  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:"}
+{"level":"info","message":"2026-07-24 08:19:01.671:  npm warn allow-scripts   sharp@0.34.5 (install: node install/check.js || npm run build)"}
+{"level":"info","message":"2026-07-24 08:19:01.673:  npm warn allow-scripts"}
+{"level":"info","message":"2026-07-24 08:19:01.675:  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow."}
+{"level":"info","message":"2026-07-24 08:19:01.676:  npm notice"}
+{"level":"info","message":"2026-07-24 08:19:01.678:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:01.681:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:01.682:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:01.684:  npm notice"}
+{"level":"info","message":"2026-07-24 08:19:07.563:  —— Step 3: Building your app ——"}
+{"level":"info","message":"2026-07-24 08:19:07.565:  Init build..."}
+{"level":"info","message":"2026-07-24 08:19:09.493:  > my-app@0.1.0 build"}
+{"level":"info","message":"2026-07-24 08:19:09.495:  > next build"}
+{"level":"info","message":"2026-07-24 08:19:10.196:  Attention: Next.js now collects completely anonymous telemetry regarding usage."}
+{"level":"info","message":"2026-07-24 08:19:10.197:  This information is used to shape Next.js' roadmap and prioritize features."}
+{"level":"info","message":"2026-07-24 08:19:10.199:  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:"}
+{"level":"info","message":"2026-07-24 08:19:10.201:  https://nextjs.org/telemetry"}
+{"level":"info","message":"2026-07-24 08:19:10.238:  ▲ Next.js 16.3.0-canary.48 (Turbopack)"}
+{"level":"info","message":"2026-07-24 08:19:10.282:    Creating an optimized production build ..."}
+{"level":"info","message":"2026-07-24 08:19:15.243:  ✓ Compiled successfully in 4.1s"}
+{"level":"info","message":"2026-07-24 08:19:15.247:    Running TypeScript ..."}
+{"level":"info","message":"2026-07-24 08:19:17.644:    Finished TypeScript in 2.4s ..."}
+{"level":"info","message":"2026-07-24 08:19:17.648:    Collecting page data using 15 workers ..."}
+{"level":"info","message":"2026-07-24 08:19:19.367:    Generating static pages using 15 workers (0/16) ..."}
+{"level":"info","message":"2026-07-24 08:19:19.447:    Generating static pages using 15 workers (4/16)"}
+{"level":"info","message":"2026-07-24 08:19:19.593:    Generating static pages using 15 workers (8/16)"}
+{"level":"info","message":"2026-07-24 08:19:19.667:    Generating static pages using 15 workers (12/16)"}
+{"level":"info","message":"2026-07-24 08:19:19.690:  ✓ Generating static pages using 15 workers (16/16) in 324ms"}
+{"level":"info","message":"2026-07-24 08:19:19.696:    Finalizing page optimization ..."}
+{"level":"info","message":"2026-07-24 08:19:20.118:  Route (app)"}
+{"level":"info","message":"2026-07-24 08:19:20.121:  ┌ ○ /"}
+{"level":"info","message":"2026-07-24 08:19:20.123:  ├ ○ /_not-found"}
+{"level":"info","message":"2026-07-24 08:19:20.125:  ├ ƒ /[...proxy]"}
+{"level":"info","message":"2026-07-24 08:19:20.126:  ├ ○ /about"}
+{"level":"info","message":"2026-07-24 08:19:20.128:  ├ ƒ /api/buffered"}
+{"level":"info","message":"2026-07-24 08:19:20.129:  ├ ƒ /api/catch/[...segments]"}
+{"level":"info","message":"2026-07-24 08:19:20.131:  ├ ƒ /api/contact"}
+{"level":"info","message":"2026-07-24 08:19:20.133:  ├ ƒ /api/hello"}
+{"level":"info","message":"2026-07-24 08:19:20.135:  ├ ƒ /api/items/[id]"}
+{"level":"info","message":"2026-07-24 08:19:20.136:  ├ ƒ /api/poc-creds"}
+{"level":"info","message":"2026-07-24 08:19:20.138:  ├ ƒ /api/proxy"}
+{"level":"info","message":"2026-07-24 08:19:20.139:  ├ ƒ /api/serverlog"}
+{"level":"info","message":"2026-07-24 08:19:20.141:  ├ ƒ /api/streaming"}
+{"level":"info","message":"2026-07-24 08:19:20.143:  ├ ○ /contact"}
+{"level":"info","message":"2026-07-24 08:19:20.145:  ├ ƒ /envvar"}
+{"level":"info","message":"2026-07-24 08:19:20.148:  ├ ○ /test"}
+{"level":"info","message":"2026-07-24 08:19:20.151:  └ ○ /test2"}
+{"level":"info","message":"2026-07-24 08:19:20.154:  ○  (Static)   prerendered as static content"}
+{"level":"info","message":"2026-07-24 08:19:20.156:  ƒ  (Dynamic)  server-rendered on demand"}
+{"level":"info","message":"2026-07-24 08:19:20.224:  npm notice"}
+{"level":"info","message":"2026-07-24 08:19:20.226:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:20.228:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:20.233:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-24 08:19:20.236:  npm notice"}
+{"level":"info","message":"2026-07-24 08:19:21.113:  ✓ Build successful"}
+{"level":"info","message":"2026-07-24 08:19:21.115:  —— Step 4: Packaging and deploying server workloads ——"}
+{"level":"info","message":"2026-07-24 08:19:21.117:  Cloud functions:"}
+{"level":"info","message":"2026-07-24 08:19:21.302:     /originlog"}
+{"level":"info","message":"2026-07-24 08:19:21.305:  [SERVER MACHINE RESOURCES]  CPU: 0.5 vCPUs · Memory: 1GB"}
+{"level":"info","message":"2026-07-24 08:19:21.307:    [1/3] Packaging origin deployment..."}
+{"level":"info","message":"2026-07-24 08:19:44.207:    [2/3] Uploading to cloud..."}
+{"level":"info","message":"2026-07-24 08:19:45.358:    [3/3] Deploying origin services..."}
+{"level":"info","message":"2026-07-24 08:20:02.048:  ✓ Origin deployment ready."}
+{"level":"info","message":"2026-07-24 08:20:02.051:  —— Step 5: Edge Functions Deployment ——"}
+{"level":"info","message":"2026-07-24 08:20:02.115:  Deploying edge functions."}
+{"level":"info","message":"Existing launch project identified"}
+{"level":"info","message":"Deployment process started.!"}
+{"level":"info","message":"2026-07-24 08:20:41.804:  Cloning repository..."}
+{"level":"info","message":"2026-07-24 08:20:50.331:  [BUILD MACHINE RESOURCES]  CPU: 2 vCPUs · Memory: 4GB · Storage: 6GB"}
+{"level":"info","message":"2026-07-24 08:20:50.333:  Response Mode: Buffered"}
+{"level":"info","message":"2026-07-24 08:20:53.953:  Current Node.js Version: v24.16.0"}
+{"level":"info","message":"2026-07-24 08:20:53.955:  —— Step 2: Installing Dependencies ——"}
+{"level":"info","message":"2026-07-24 08:20:53.957:  Installing dependencies..."}
+{"level":"info","message":"2026-07-24 08:21:12.381:  > my-app@0.1.0 prepare"}
+{"level":"info","message":"2026-07-24 08:21:12.383:  > husky"}
+{"level":"info","message":"2026-07-24 08:21:12.532:  git command not found"}
+{"level":"info","message":"2026-07-24 08:21:12.534:  added 400 packages, and audited 401 packages in 18s"}
+{"level":"info","message":"2026-07-24 08:21:12.537:  150 packages are looking for funding"}
+{"level":"info","message":"2026-07-24 08:21:12.538:    run `npm fund` for details"}
+{"level":"info","message":"2026-07-24 08:21:12.575:  11 vulnerabilities (2 low, 1 moderate, 8 high)"}
+{"level":"info","message":"2026-07-24 08:21:12.578:  To address issues that do not require attention, run:"}
+{"level":"info","message":"2026-07-24 08:21:12.580:    npm audit fix"}
+{"level":"info","message":"2026-07-24 08:21:12.583:  To address all issues (including breaking changes), run:"}
+{"level":"info","message":"2026-07-24 08:21:12.587:    npm audit fix --force"}
+{"level":"info","message":"2026-07-24 08:21:12.589:  Run `npm audit` for details."}
+{"level":"info","message":"2026-07-24 08:21:12.591:  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:"}
+{"level":"info","message":"2026-07-24 08:21:12.592:  npm warn allow-scripts   sharp@0.34.5 (install: node install/check.js || npm run build)"}
+{"level":"info","message":"2026-07-24 08:21:12.594:  npm warn allow-scripts"}
+{"level":"info","message":"2026-07-24 08:21:12.595:  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow."}
+{"level":"info","message":"2026-07-24 08:21:12.597:  npm notice"}
+{"level":"info","message":"2026-07-24 08:21:12.598:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:12.600:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:12.601:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:12.603:  npm notice"}
+{"level":"info","message":"2026-07-24 08:21:18.373:  Init build..."}
+{"level":"info","message":"2026-07-24 08:21:22.203:  > next build"}
+{"level":"info","message":"2026-07-24 08:21:22.869:  Attention: Next.js now collects completely anonymous telemetry regarding usage."}
+{"level":"info","message":"2026-07-24 08:21:22.875:  https://nextjs.org/telemetry"}
+{"level":"info","message":"2026-07-24 08:21:22.910:  ▲ Next.js 16.3.0-canary.48 (Turbopack)"}
+{"level":"info","message":"2026-07-24 08:21:22.953:    Creating an optimized production build ..."}
+{"level":"info","message":"2026-07-24 08:21:27.743:    Running TypeScript ..."}
+{"level":"info","message":"2026-07-24 08:21:30.114:    Collecting page data using 15 workers ..."}
+{"level":"info","message":"2026-07-24 08:21:32.146:  ✓ Generating static pages using 15 workers (16/16) in 334ms"}
+{"level":"info","message":"2026-07-24 08:21:32.151:    Finalizing page optimization ..."}
+{"level":"info","message":"2026-07-24 08:21:32.574:  Route (app)"}
+{"level":"info","message":"2026-07-24 08:21:32.577:  ┌ ○ /"}
+{"level":"info","message":"2026-07-24 08:21:32.579:  ├ ○ /_not-found"}
+{"level":"info","message":"2026-07-24 08:21:32.581:  ├ ƒ /[...proxy]"}
+{"level":"info","message":"2026-07-24 08:21:32.583:  ├ ○ /about"}
+{"level":"info","message":"2026-07-24 08:21:32.586:  ├ ƒ /api/buffered"}
+{"level":"info","message":"2026-07-24 08:21:32.588:  ├ ƒ /api/catch/[...segments]"}
+{"level":"info","message":"2026-07-24 08:21:32.590:  ├ ƒ /api/contact"}
+{"level":"info","message":"2026-07-24 08:21:32.592:  ├ ƒ /api/hello"}
+{"level":"info","message":"2026-07-24 08:21:32.594:  ├ ƒ /api/items/[id]"}
+{"level":"info","message":"2026-07-24 08:21:32.596:  ├ ƒ /api/poc-creds"}
+{"level":"info","message":"2026-07-24 08:21:32.597:  ├ ƒ /api/proxy"}
+{"level":"info","message":"2026-07-24 08:21:32.601:  ├ ƒ /api/serverlog"}
+{"level":"info","message":"2026-07-24 08:21:32.603:  ├ ƒ /api/streaming"}
+{"level":"info","message":"2026-07-24 08:21:32.605:  ├ ○ /contact"}
+{"level":"info","message":"2026-07-24 08:21:32.607:  ├ ƒ /envvar"}
+{"level":"info","message":"2026-07-24 08:21:32.610:  ├ ○ /test"}
+{"level":"info","message":"2026-07-24 08:21:32.612:  └ ○ /test2"}
+{"level":"info","message":"2026-07-24 08:21:32.614:  ○  (Static)   prerendered as static content"}
+{"level":"info","message":"2026-07-24 08:21:32.616:  ƒ  (Dynamic)  server-rendered on demand"}
+{"level":"info","message":"2026-07-24 08:21:32.679:  npm notice"}
+{"level":"info","message":"2026-07-24 08:21:32.684:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:32.692:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:32.694:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-24 08:21:32.695:  npm notice"}
+{"level":"info","message":"2026-07-24 08:21:33.522:  ✓ Build successful"}
+{"level":"info","message":"2026-07-24 08:21:33.524:  —— Step 4: Packaging and deploying server workloads ——"}
+{"level":"info","message":"2026-07-24 08:21:33.526:  Cloud functions:"}
+{"level":"info","message":"2026-07-24 08:21:33.721:     /originlog"}
+{"level":"info","message":"2026-07-24 08:21:33.724:  [SERVER MACHINE RESOURCES]  CPU: 0.5 vCPUs · Memory: 1GB"}
+{"level":"info","message":"2026-07-24 08:21:33.726:    [1/3] Packaging origin deployment..."}
+{"level":"info","message":"2026-07-24 08:21:56.994:    [2/3] Uploading to cloud..."}
+{"level":"info","message":"2026-07-24 08:21:58.179:    [3/3] Deploying origin services..."}
+{"level":"info","message":"2026-07-24 08:22:19.038:  ✓ Origin deployment ready."}
+{"level":"info","message":"2026-07-24 08:22:20.565:  ✓ Build and hosting completed."}
+{"level":"info","message":"2026-07-24 08:22:21.964:  ✓✓ Site is live"}
+{"level":"info","message":"Existing launch project identified"}
+{"level":"info","message":"Cannot create a new project because its an existing project."}
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"GitHub connection identified!"}
+{"level":"info","message":"User access verified"}
+{"level":"info","message":"Skipped adding environment variables."}
+{"level":"info","message":"New project created successfully"}
+{"level":"info","message":"2026-07-27 16:41:13.212:  —— Step 1: Setting up build environment ——"}
+{"level":"info","message":"2026-07-27 16:41:13.222:  Cloning repository..."}
+{"level":"info","message":"2026-07-27 16:41:21.391:  [BUILD MACHINE RESOURCES]  CPU: 2 vCPUs · Memory: 4GB · Storage: 6GB"}
+{"level":"info","message":"2026-07-27 16:41:21.393:  Response Mode: Buffered"}
+{"level":"info","message":"2026-07-27 16:41:26.565:  Current Node.js Version: v24.16.0"}
+{"level":"info","message":"2026-07-27 16:41:26.567:  —— Step 2: Installing Dependencies ——"}
+{"level":"info","message":"2026-07-27 16:41:26.569:  Installing dependencies..."}
+{"level":"info","message":"2026-07-27 16:41:44.554:  > my-app@0.1.0 prepare"}
+{"level":"info","message":"2026-07-27 16:41:44.557:  > husky"}
+{"level":"info","message":"2026-07-27 16:41:44.683:  git command not found"}
+{"level":"info","message":"2026-07-27 16:41:44.686:  added 400 packages, and audited 401 packages in 18s"}
+{"level":"info","message":"2026-07-27 16:41:44.687:  150 packages are looking for funding"}
+{"level":"info","message":"2026-07-27 16:41:44.689:    run `npm fund` for details"}
+{"level":"info","message":"2026-07-27 16:41:44.730:  11 vulnerabilities (2 low, 1 moderate, 8 high)"}
+{"level":"info","message":"2026-07-27 16:41:44.732:  To address issues that do not require attention, run:"}
+{"level":"info","message":"2026-07-27 16:41:44.734:    npm audit fix"}
+{"level":"info","message":"2026-07-27 16:41:44.735:  To address all issues (including breaking changes), run:"}
+{"level":"info","message":"2026-07-27 16:41:44.737:    npm audit fix --force"}
+{"level":"info","message":"2026-07-27 16:41:44.739:  Run `npm audit` for details."}
+{"level":"info","message":"2026-07-27 16:41:44.741:  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:"}
+{"level":"info","message":"2026-07-27 16:41:44.742:  npm warn allow-scripts   sharp@0.34.5 (install: node install/check.js || npm run build)"}
+{"level":"info","message":"2026-07-27 16:41:44.744:  npm warn allow-scripts"}
+{"level":"info","message":"2026-07-27 16:41:44.746:  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow."}
+{"level":"info","message":"2026-07-27 16:41:44.747:  npm notice"}
+{"level":"info","message":"2026-07-27 16:41:44.749:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-27 16:41:44.751:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-27 16:41:44.752:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-27 16:41:44.754:  npm notice"}
+{"level":"info","message":"2026-07-27 16:41:50.637:  —— Step 3: Building your app ——"}
+{"level":"info","message":"2026-07-27 16:41:50.640:  Init build..."}
+{"level":"info","message":"2026-07-27 16:41:52.650:  > my-app@0.1.0 build"}
+{"level":"info","message":"2026-07-27 16:41:52.652:  > next build"}
+{"level":"info","message":"2026-07-27 16:41:53.325:  Attention: Next.js now collects completely anonymous telemetry regarding usage."}
+{"level":"info","message":"2026-07-27 16:41:53.327:  This information is used to shape Next.js' roadmap and prioritize features."}
+{"level":"info","message":"2026-07-27 16:41:53.329:  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:"}
+{"level":"info","message":"2026-07-27 16:41:53.331:  https://nextjs.org/telemetry"}
+{"level":"info","message":"2026-07-27 16:41:53.364:  ▲ Next.js 16.3.0-canary.48 (Turbopack)"}
+{"level":"info","message":"2026-07-27 16:41:53.406:    Creating an optimized production build ..."}
+{"level":"info","message":"2026-07-27 16:41:57.882:  ✓ Compiled successfully in 3.7s"}
+{"level":"info","message":"2026-07-27 16:41:57.885:    Running TypeScript ..."}
+{"level":"info","message":"2026-07-27 16:42:00.097:    Finished TypeScript in 2.2s ..."}
+{"level":"info","message":"2026-07-27 16:42:00.100:    Collecting page data using 15 workers ..."}
+{"level":"info","message":"2026-07-27 16:42:01.666:    Generating static pages using 15 workers (0/16) ..."}
+{"level":"info","message":"2026-07-27 16:42:01.740:    Generating static pages using 15 workers (4/16)"}
+{"level":"info","message":"2026-07-27 16:42:01.882:    Generating static pages using 15 workers (8/16)"}
+{"level":"info","message":"2026-07-27 16:42:01.950:    Generating static pages using 15 workers (12/16)"}
+{"level":"info","message":"2026-07-27 16:42:01.973:  ✓ Generating static pages using 15 workers (16/16) in 307ms"}
+{"level":"info","message":"2026-07-27 16:42:01.978:    Finalizing page optimization ..."}
+{"level":"info","message":"2026-07-27 16:42:02.385:  Route (app)"}
+{"level":"info","message":"2026-07-27 16:42:02.387:  ┌ ○ /"}
+{"level":"info","message":"2026-07-27 16:42:02.389:  ├ ○ /_not-found"}
+{"level":"info","message":"2026-07-27 16:42:02.391:  ├ ƒ /[...proxy]"}
+{"level":"info","message":"2026-07-27 16:42:02.392:  ├ ○ /about"}
+{"level":"info","message":"2026-07-27 16:42:02.394:  ├ ƒ /api/buffered"}
+{"level":"info","message":"2026-07-27 16:42:02.396:  ├ ƒ /api/catch/[...segments]"}
+{"level":"info","message":"2026-07-27 16:42:02.397:  ├ ƒ /api/contact"}
+{"level":"info","message":"2026-07-27 16:42:02.399:  ├ ƒ /api/hello"}
+{"level":"info","message":"2026-07-27 16:42:02.401:  ├ ƒ /api/items/[id]"}
+{"level":"info","message":"2026-07-27 16:42:02.403:  ├ ƒ /api/poc-creds"}
+{"level":"info","message":"2026-07-27 16:42:02.404:  ├ ƒ /api/proxy"}
+{"level":"info","message":"2026-07-27 16:42:02.406:  ├ ƒ /api/serverlog"}
+{"level":"info","message":"2026-07-27 16:42:02.408:  ├ ƒ /api/streaming"}
+{"level":"info","message":"2026-07-27 16:42:02.409:  ├ ○ /contact"}
+{"level":"info","message":"2026-07-27 16:42:02.411:  ├ ƒ /envvar"}
+{"level":"info","message":"2026-07-27 16:42:02.413:  ├ ○ /test"}
+{"level":"info","message":"2026-07-27 16:42:02.415:  └ ○ /test2"}
+{"level":"info","message":"2026-07-27 16:42:02.416:  ○  (Static)   prerendered as static content"}
+{"level":"info","message":"2026-07-27 16:42:02.418:  ƒ  (Dynamic)  server-rendered on demand"}
+{"level":"info","message":"2026-07-27 16:42:02.506:  npm notice"}
+{"level":"info","message":"2026-07-27 16:42:02.508:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-27 16:42:02.510:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-27 16:42:02.512:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-27 16:42:02.514:  npm notice"}
+{"level":"info","message":"2026-07-27 16:42:03.304:  ✓ Build successful"}
+{"level":"info","message":"2026-07-27 16:42:03.306:  —— Step 4: Packaging and deploying server workloads ——"}
+{"level":"info","message":"2026-07-27 16:42:03.308:  Cloud functions:"}
+{"level":"info","message":"2026-07-27 16:42:03.483:     /originlog"}
+{"level":"info","message":"2026-07-27 16:42:03.486:  [SERVER MACHINE RESOURCES]  CPU: 0.5 vCPUs · Memory: 1GB"}
+{"level":"info","message":"2026-07-27 16:42:03.488:    [1/3] Packaging origin deployment..."}
+{"level":"info","message":"2026-07-27 16:42:27.292:    [2/3] Uploading to cloud..."}
+{"level":"info","message":"2026-07-27 16:42:29.430:    [3/3] Deploying origin services..."}
+{"level":"info","message":"2026-07-27 16:42:44.826:  ✓ Origin deployment ready."}
+{"level":"info","message":"2026-07-27 16:42:44.828:  —— Step 5: Edge Functions Deployment ——"}
+{"level":"info","message":"2026-07-27 16:42:44.896:  Deploying edge functions."}
+{"level":"info","message":"Existing launch project identified"}
+{"level":"info","message":"Deployment process started.!"}
+{"level":"info","message":"2026-07-27 16:44:07.119:  —— Step 1: Setting up build environment ——"}
+{"level":"info","message":"2026-07-27 16:44:07.128:  Cloning repository..."}
+{"level":"info","message":"2026-07-27 16:44:16.118:  [BUILD MACHINE RESOURCES]  CPU: 2 vCPUs · Memory: 4GB · Storage: 6GB"}
+{"level":"info","message":"2026-07-27 16:44:16.120:  Response Mode: Buffered"}
+{"level":"info","message":"2026-07-27 16:44:37.285:  Current Node.js Version: v24.16.0"}
+{"level":"info","message":"2026-07-27 16:44:37.289:  Installing dependencies..."}
+{"level":"info","message":"2026-07-27 16:44:55.801:  > my-app@0.1.0 prepare"}
+{"level":"info","message":"2026-07-27 16:44:55.804:  > husky"}
+{"level":"info","message":"2026-07-27 16:44:55.949:  git command not found"}
+{"level":"info","message":"2026-07-27 16:44:55.951:  added 400 packages, and audited 401 packages in 18s"}
+{"level":"info","message":"2026-07-27 16:44:55.953:  150 packages are looking for funding"}
+{"level":"info","message":"2026-07-27 16:44:55.955:    run `npm fund` for details"}
+{"level":"info","message":"2026-07-27 16:44:56.006:  11 vulnerabilities (2 low, 1 moderate, 8 high)"}
+{"level":"info","message":"2026-07-27 16:44:56.009:  To address issues that do not require attention, run:"}
+{"level":"info","message":"2026-07-27 16:44:56.010:    npm audit fix"}
+{"level":"info","message":"2026-07-27 16:44:56.012:  To address all issues (including breaking changes), run:"}
+{"level":"info","message":"2026-07-27 16:44:56.014:    npm audit fix --force"}
+{"level":"info","message":"2026-07-27 16:44:56.016:  Run `npm audit` for details."}
+{"level":"info","message":"2026-07-27 16:44:56.018:  npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:"}
+{"level":"info","message":"2026-07-27 16:44:56.019:  npm warn allow-scripts   sharp@0.34.5 (install: node install/check.js || npm run build)"}
+{"level":"info","message":"2026-07-27 16:44:56.021:  npm warn allow-scripts"}
+{"level":"info","message":"2026-07-27 16:44:56.023:  npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow."}
+{"level":"info","message":"2026-07-27 16:44:56.024:  npm notice"}
+{"level":"info","message":"2026-07-27 16:44:56.026:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-27 16:44:56.028:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-27 16:44:56.030:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-27 16:44:56.031:  npm notice"}
+{"level":"info","message":"2026-07-27 16:45:08.828:  —— Step 3: Building your app ——"}
+{"level":"info","message":"2026-07-27 16:45:08.830:  Init build..."}
+{"level":"info","message":"2026-07-27 16:45:11.644:  > my-app@0.1.0 build"}
+{"level":"info","message":"2026-07-27 16:45:11.647:  > next build"}
+{"level":"info","message":"2026-07-27 16:45:12.375:  Attention: Next.js now collects completely anonymous telemetry regarding usage."}
+{"level":"info","message":"2026-07-27 16:45:12.377:  This information is used to shape Next.js' roadmap and prioritize features."}
+{"level":"info","message":"2026-07-27 16:45:12.379:  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:"}
+{"level":"info","message":"2026-07-27 16:45:12.381:  https://nextjs.org/telemetry"}
+{"level":"info","message":"2026-07-27 16:45:12.415:  ▲ Next.js 16.3.0-canary.48 (Turbopack)"}
+{"level":"info","message":"2026-07-27 16:45:12.459:    Creating an optimized production build ..."}
+{"level":"info","message":"2026-07-27 16:45:17.196:  ✓ Compiled successfully in 3.9s"}
+{"level":"info","message":"2026-07-27 16:45:17.199:    Running TypeScript ..."}
+{"level":"info","message":"2026-07-27 16:45:19.545:    Finished TypeScript in 2.3s ..."}
+{"level":"info","message":"2026-07-27 16:45:19.548:    Collecting page data using 15 workers ..."}
+{"level":"info","message":"2026-07-27 16:45:21.206:    Generating static pages using 15 workers (0/16) ..."}
+{"level":"info","message":"2026-07-27 16:45:21.274:    Generating static pages using 15 workers (4/16)"}
+{"level":"info","message":"2026-07-27 16:45:21.429:    Generating static pages using 15 workers (8/16)"}
+{"level":"info","message":"2026-07-27 16:45:21.508:    Generating static pages using 15 workers (12/16)"}
+{"level":"info","message":"2026-07-27 16:45:21.531:  ✓ Generating static pages using 15 workers (16/16) in 325ms"}
+{"level":"info","message":"2026-07-27 16:45:21.536:    Finalizing page optimization ..."}
+{"level":"info","message":"2026-07-27 16:45:21.952:  Route (app)"}
+{"level":"info","message":"2026-07-27 16:45:21.954:  ┌ ○ /"}
+{"level":"info","message":"2026-07-27 16:45:21.956:  ├ ○ /_not-found"}
+{"level":"info","message":"2026-07-27 16:45:21.958:  ├ ƒ /[...proxy]"}
+{"level":"info","message":"2026-07-27 16:45:21.960:  ├ ○ /about"}
+{"level":"info","message":"2026-07-27 16:45:21.961:  ├ ƒ /api/buffered"}
+{"level":"info","message":"2026-07-27 16:45:21.963:  ├ ƒ /api/catch/[...segments]"}
+{"level":"info","message":"2026-07-27 16:45:21.965:  ├ ƒ /api/contact"}
+{"level":"info","message":"2026-07-27 16:45:21.966:  ├ ƒ /api/hello"}
+{"level":"info","message":"2026-07-27 16:45:21.968:  ├ ƒ /api/items/[id]"}
+{"level":"info","message":"2026-07-27 16:45:21.970:  ├ ƒ /api/poc-creds"}
+{"level":"info","message":"2026-07-27 16:45:21.972:  ├ ƒ /api/proxy"}
+{"level":"info","message":"2026-07-27 16:45:21.973:  ├ ƒ /api/serverlog"}
+{"level":"info","message":"2026-07-27 16:45:21.975:  ├ ƒ /api/streaming"}
+{"level":"info","message":"2026-07-27 16:45:21.977:  ├ ○ /contact"}
+{"level":"info","message":"2026-07-27 16:45:21.979:  ├ ƒ /envvar"}
+{"level":"info","message":"2026-07-27 16:45:21.980:  ├ ○ /test"}
+{"level":"info","message":"2026-07-27 16:45:21.982:  └ ○ /test2"}
+{"level":"info","message":"2026-07-27 16:45:21.984:  ○  (Static)   prerendered as static content"}
+{"level":"info","message":"2026-07-27 16:45:21.986:  ƒ  (Dynamic)  server-rendered on demand"}
+{"level":"info","message":"2026-07-27 16:45:22.063:  npm notice"}
+{"level":"info","message":"2026-07-27 16:45:22.066:  npm notice New major version of npm available! 11.16.0 -> 12.0.1"}
+{"level":"info","message":"2026-07-27 16:45:22.068:  npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1"}
+{"level":"info","message":"2026-07-27 16:45:22.069:  npm notice To update run: npm install -g npm@12.0.1"}
+{"level":"info","message":"2026-07-27 16:45:22.071:  npm notice"}
+{"level":"info","message":"2026-07-27 16:45:49.752:  ✓ Build successful"}
+{"level":"info","message":"2026-07-27 16:45:49.755:  —— Step 4: Packaging and deploying server workloads ——"}
+{"level":"info","message":"2026-07-27 16:45:49.757:  Cloud functions:"}
+{"level":"info","message":"2026-07-27 16:45:49.959:     /originlog"}
+{"level":"info","message":"2026-07-27 16:45:49.962:  [SERVER MACHINE RESOURCES]  CPU: 0.5 vCPUs · Memory: 1GB"}
+{"level":"info","message":"2026-07-27 16:45:49.964:    [1/3] Packaging origin deployment..."}
+{"level":"info","message":"2026-07-27 16:46:27.207:    [2/3] Uploading to cloud..."}
+{"level":"info","message":"2026-07-27 16:46:28.281:    [3/3] Deploying origin services..."}
+{"level":"info","message":"2026-07-27 16:46:45.203:  ✓ Origin deployment ready."}
+{"level":"info","message":"2026-07-27 16:46:45.205:  —— Step 5: Edge Functions Deployment ——"}
+{"level":"info","message":"2026-07-27 16:46:45.264:  Deploying edge functions."}

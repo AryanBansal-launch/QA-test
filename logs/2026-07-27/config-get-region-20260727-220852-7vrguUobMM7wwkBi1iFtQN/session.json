@@ -1,0 +1,17 @@
+{
+  "command": "config:get:region",
+  "module": "region",
+  "userId": "37133490-3c9e-5215-9639-110e7c986715",
+  "email": "aryan.bansal@contentstack.com",
+  "sessionId": "7vrguUobMM7wwkBi1iFtQN",
+  "apiKey": "blt762a730261282d85",
+  "orgId": "",
+  "authenticationMethod": "Basic Auth",
+  "startTimestamp": "2026-07-27T16:38:52.149Z",
+  "MachineEnvironment": {
+    "nodeVersion": "v22.14.0",
+    "os": "darwin",
+    "hostname": "AryanBansal-Mac",
+    "CLI_VERSION": "1.62.1"
+  }
+}
