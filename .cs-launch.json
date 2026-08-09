@@ -1,0 +1,39 @@
+{
+  "proxy": {
+    "uid": "6a7397fc90bfa884bbbfc36d",
+    "name": "Test-dep",
+    "projectType": "GITPROVIDER",
+    "organizationUid": "blt8ca9ce72e25d0172",
+    "environments": [
+      {
+        "uid": "6a7397fc90bfa884bbbfc374",
+        "name": "Default",
+        "frameworkPreset": "NEXTJS",
+        "__typename": "Environment"
+      }
+    ],
+    "repository": {
+      "username": "AryanBansal-launch",
+      "repositoryName": "AryanBansal-launch/QA-test",
+      "gitProviderMetadata": {
+        "gitProvider": "GitHub",
+        "__typename": "GitHubMetadata"
+      },
+      "__typename": "Repository"
+    },
+    "__typename": "Project",
+    "deployments": [
+      {
+        "uid": "6a7397fd90bfa884bbbfc37f",
+        "status": "QUEUED",
+        "commitUrl": "https://github.com/AryanBansal-launch/QA-test/commit/aa4b97004d09365c625fe4d49efda31a227da1fd",
+        "createdAt": "2026-08-05T20:07:25.038Z",
+        "updatedAt": "2026-08-05T20:07:25.038Z",
+        "deploymentUrl": "test-dep.devcontentstackapps.com",
+        "commitHash": "aa4b97004d09365c625fe4d49efda31a227da1fd",
+        "commitMessage": "proxy",
+        "__typename": "Deployment"
+      }
+    ]
+  }
+}
