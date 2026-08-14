@@ -3,7 +3,7 @@ import { after } from "next/server";
 import { apiLog } from "@/lib/api-log";
 
 // Simulated background work duration (5 minutes).
-const BACKGROUND_DURATION_MS = 5 * 60 * 1000;
+const BACKGROUND_DURATION_MS = 10 * 60 * 1000;
 
 export async function GET() {
   const requestId = crypto.randomUUID();
