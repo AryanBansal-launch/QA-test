@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { after } from "next/server";
 import { apiLog } from "@/lib/api-log";
 
-// Simulated background work duration (5 minutes).
 const BACKGROUND_DURATION_MS = 10 * 60 * 1000;
+const DEBUG_LOG_INTERVAL_MS = 30 * 1000;
 
 export async function GET() {
   const requestId = crypto.randomUUID();
@@ -16,7 +16,16 @@ export async function GET() {
     const start = Date.now();
     apiLog("background-task", "background work started", { requestId });
 
+    const debugInterval = setInterval(() => {
+      apiLog("background-task", "debug: background work still running", {
+        requestId,
+        elapsedMs: Date.now() - start,
+      });
+    }, DEBUG_LOG_INTERVAL_MS);
+
     await new Promise((resolve) => setTimeout(resolve, BACKGROUND_DURATION_MS));
+
+    clearInterval(debugInterval);
 
     apiLog("background-task", "background work finished", {
       requestId,
